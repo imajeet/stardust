@@ -10,9 +10,8 @@ coverage
 .DS_Store
 .env
 npm-debug.log
+package-lock.json
 
-# css
-stylesheets/*.css
 
-# build
 build
+stylesheets/*.css
