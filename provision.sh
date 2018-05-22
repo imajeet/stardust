@@ -32,7 +32,7 @@ initiate_project(){
 
    #node server 
    cd ..
-   sudo forever start -c 'npm run server' ./ 
+   sudo forever start -c 'node server' ./ 
    if pgrep -x "node" > /dev/null
    then
       echo "Server started -> http://localhost:9000"
