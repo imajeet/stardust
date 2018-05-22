@@ -1,0 +1,45 @@
+@charset 'UTF-8'
+
+//base
+@import 'base/typography.sass', 'base/animations.sass'
+
+//abstracts
+@import	'abstracts/variables.sass', 'abstracts/mixins'
+
+//components
+@import	'components/input', 'components/buttons'
+
+//layout
+@import	'layout/forms', 'layout/navigation'
+
+//pages
+@import	'pages/dash'
+
+
+body
+	font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+	margin: 0
+	padding: 0
+
+a
+	text-decoration: none
+
+.wrapper 
+	background-color: $light-grey
+	width: 100%
+	min-height: 100vh
+	display: flex
+	flex-direction: column
+	align-items: center
+
+
+.container
+	width: 1280px
+	height: auto
+
+.animated-page-wrapper
+	position: absolute
+	top: 62px
+	left: 0
+	width: 100%
+	height: 100%
