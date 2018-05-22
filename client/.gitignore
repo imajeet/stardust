@@ -10,3 +10,9 @@ coverage
 .DS_Store
 .env
 npm-debug.log
+
+# css
+stylesheets/*.css
+
+# build
+build
