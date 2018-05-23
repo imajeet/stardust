@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Navigation } from '../components/navigation';
 import TableContainer from './Table'
-import SearchInput from '../components/searchInput';
+import Input from '../components/input';
 import Wrapper from './Wrapper'
 
 class Dash extends Component {
@@ -11,7 +11,11 @@ class Dash extends Component {
 			<Wrapper>
 				<div className='dash'>
 					<div className='search-section'>
-						<SearchInput/>
+						<Input
+							type='text'
+							htmlFor='searchInput'
+							placeholder='Search stars...'
+							hasLabel={false}/>
 					</div>
 					<TableContainer/>
 				</div>
