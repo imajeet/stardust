@@ -6,12 +6,19 @@ import Wrapper from './Wrapper'
 
 class Dash extends Component {
 
+	state = {
+		searchValue: ''
+	}
+
+	handleChange = (e) => this.setState({searchValue: e.target.value})
+
 	render(){
 		return(
 			<Wrapper>
 				<div className='dash'>
 					<div className='search-section'>
 						<Input
+							handleChange={this.handleChange}
 							type='text'
 							htmlFor='searchInput'
 							placeholder='Search stars...'

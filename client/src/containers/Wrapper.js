@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { openModal, closeModal, removeModalData} from '../state/actions/modal'
+import { openModal, closeModal, removeModalData, shutDownModal } from '../state/actions/modal'
 import { stars } from '../stars'
-import { setStarsData } from '../state/actions/stars'
+import { setStarsData, updateStar, addStar } from '../state/actions/stars'
+import { resetValues } from '../state/actions/form'
 import Rodal from 'rodal';
 import { Navigation } from '../components/navigation';
 import { ModalContent } from '../components/modalContent';
@@ -18,15 +19,14 @@ class Wrapper extends Component{
 
     render(){
 
-        const { openModal, closeModal, opened, modalData, removeModalData } = this.props
+        const { openModal, closeModal, opened, modalData, removeModalData, updateStar, resetValues, formData, addStar} = this.props
 
         return(
             <div className='wrapper'>
                 <Rodal visible={opened}
                     onClose={() => {
+                        removeModalData()
                         closeModal()
-                        setTimeout(() => removeModalData(), 50)
-                        // Added ^ because of short glitch between states
                     }}
                     closeMaskOnClick={true}
                     closeOnEsc={true}
@@ -34,10 +34,10 @@ class Wrapper extends Component{
                     width={900}
                     height={620}
                     duration={200}>
-                    <ModalContent modalData={modalData}/>
+                    <ModalContent data={modalData} formData={formData} addStar={addStar} updateStar={updateStar} modalData={modalData}/>
                 </Rodal>
                 <div className='container'>
-                    <Navigation openModal={openModal} />
+                    <Navigation openModal={openModal} resetForm={resetValues} />
                     { this.props.children }
                 </div>
             </div>
@@ -47,8 +47,9 @@ class Wrapper extends Component{
 
 const mapStateToProps = ({rootReducer}) => ({
     opened: rootReducer.modalOpened,
-    modalData: rootReducer.modalData ? rootReducer.modalData : null
+    modalData: rootReducer.modalData ? rootReducer.modalData : null,
+    formData: rootReducer.formData
 })
 
 
-export default connect(mapStateToProps, { openModal, closeModal, removeModalData, setStarsData })(Wrapper)
+export default connect(mapStateToProps, { openModal, closeModal, removeModalData, setStarsData, shutDownModal, updateStar, resetValues, addStar })(Wrapper)

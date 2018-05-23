@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import ReactTable from 'react-table'
 import matchSorter from 'match-sorter'
 import { connect } from 'react-redux'
+import { closeModal } from '../state/actions/modal'
+import { updateSuccess, insertSuccess, resetStatus } from '../state/actions/stars'
 import "react-table/react-table.css";
 import ActionsCell from '../components/tableActionsCell';
 
@@ -16,9 +18,22 @@ class TableContainer extends Component {
 		filtered: []
 	}
 
+	componentDidUpdate(prevProps, prevState){
+		if(prevProps.stars !== this.props.stars && prevProps.stars.length === this.props.stars.length){
+			this.props.closeModal()
+			this.props.updateSuccess()
+			setTimeout(() => this.props.resetStatus, 1000)
+		}
+		if(prevProps.stars.length < this.props.stars.length){
+			this.props.closeModal()
+			this.props.insertSuccess()
+			setTimeout(() => this.props.resetStatus, 1000)
+		}
+	}
+
 	render(){
 
-		const { stars } = this.props
+		const { stars, status } = this.props
 
 		return(
 			
@@ -139,7 +154,8 @@ class TableContainer extends Component {
 }
 
 const mapStateToProps = ({rootReducer}) => ({
-	stars: rootReducer.stars ? rootReducer.stars.data : null
+	stars: rootReducer.stars ? rootReducer.stars.data : null,
+	status: rootReducer.starStatus
 })
 
-export default connect(mapStateToProps, {  })(TableContainer)
+export default connect(mapStateToProps, { updateSuccess, insertSuccess, closeModal, resetStatus })(TableContainer)

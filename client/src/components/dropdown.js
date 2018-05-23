@@ -6,13 +6,14 @@ class Dropdown extends Component {
         value: 5
     }
 
-    handleChange = (e) => this.setState({value: e.target.value})
-  
     render() {
+
+      const { handleChange, distance } = this.props
+
       return (
         <div className='dropdown'>
-            Choose the distance (in light years):
-            <select value={this.state.value} onChange={this.handleChange}>
+            <span>Choose the distance (in light years):</span>
+            <select name='distance' value={distance} onChange={handleChange}>
               <option value={5}>5</option>
               <option value={10}>10</option>
               <option value={20}>20</option>
