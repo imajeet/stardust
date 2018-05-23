@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { stars } from '../stars.js'
 import ReactTable from 'react-table'
 import matchSorter from 'match-sorter'
+import { connect } from 'react-redux'
 import "react-table/react-table.css";
 import ActionsCell from '../components/tableActionsCell';
 
@@ -17,6 +17,9 @@ class TableContainer extends Component {
 	}
 
 	render(){
+
+		const { stars } = this.props
+
 		return(
 			
 		<ReactTable
@@ -133,4 +136,8 @@ class TableContainer extends Component {
 	}
 }
 
-export default TableContainer
+const mapStateToProps = ({rootReducer}) => ({
+	stars: rootReducer.stars ? rootReducer.stars.data : null
+})
+
+export default connect(mapStateToProps, {  })(TableContainer)
