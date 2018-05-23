@@ -64,7 +64,9 @@
     "react-router-dom": "^4.2.2",
     "react-table": "^6.8.6",
     "react-transition-group": "^2.2.1",
-    "redux": "^3.7.2"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "rodal": "^1.6.3"
   },
   "scripts": {
     "build-css": "node-sass-chokidar --include-path ./stylesheets/main.sass --include-path ./node_modules stylesheets/main.sass -o stylesheets/",

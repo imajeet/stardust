@@ -1,4 +1,3 @@
-import promiseMiddleware from '../utils/promise'
 import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 
@@ -6,7 +5,7 @@ import rootReducer from './reducers';
 
 
 const composedMiddleware = [
-  applyMiddleware(thunk, promiseMiddleware)
+  applyMiddleware(thunk)
 ];
 
 if (process.env.NODE_ENV !== 'production') {
