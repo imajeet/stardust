@@ -14,5 +14,3 @@ npm-debug.log
 
 build
 stylesheets/*.css
-
-../server/node_modules
