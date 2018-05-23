@@ -53,9 +53,25 @@ class TableContainer extends Component {
 					id: "id",
 					width: 100,
 					accessor: d => d.id,
-				  	filterMethod: (filter, rows) =>
-                    matchSorter(rows, filter.value, { keys: ["id"] }),
-                  	filterAll: true
+					filterMethod: (filter, row) => {
+						if (filter.value === "all") {
+						  return true;
+						}
+						if (filter.value === "even") {
+						  return row[filter.id] % 2 === 0;
+						}
+						return row[filter.id] % 2 !== 0;
+					  },
+					  Filter: ({ filter, onChange }) =>
+						<select
+						  onChange={event => onChange(event.target.value)}
+						  style={{ width: "100%", height: '40px' }}
+						  value={filter ? filter.value : "all"}
+						>
+						  <option value="all">Show All</option>
+						  <option value="even">Even</option>
+						  <option value="odd">Odd</option>
+						</select>
 				},
 			]
 			},

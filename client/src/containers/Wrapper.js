@@ -34,7 +34,7 @@ class Wrapper extends Component{
                     width={900}
                     height={620}
                     duration={200}>
-                    <ModalContent data={modalData} formData={formData} addStar={addStar} updateStar={updateStar} modalData={modalData}/>
+                    <ModalContent data={modalData} closeModal={closeModal} formData={formData} addStar={addStar} updateStar={updateStar} modalData={modalData}/>
                 </Rodal>
                 <div className='container'>
                     <Navigation openModal={openModal} resetForm={resetValues} />

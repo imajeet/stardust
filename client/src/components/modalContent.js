@@ -12,9 +12,8 @@ export const ModalContent = (props) => {
             <Form/>
 
             <div className='modal-btn-container'>
-                <button className='modal-btn-cancel'>Cancel</button>
+                <button onClick={() => props.closeModal()} className='modal-btn-cancel'>Cancel</button>
                 <button onClick={() => {
-                    console.log(props.data)
                     props.data ?
                     props.updateStar(props.data) : 
                     props.addStar(props.formData)
