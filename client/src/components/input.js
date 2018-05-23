@@ -10,18 +10,20 @@ class Input extends Component{
 
     render(){
 
-        const { placeholder, htmlFor, type, label, hasLabel, required } = this.props
+        const { placeholder, htmlFor, type, label, hasLabel, required, size, value, edit} = this.props
 
         return(
             <div className='input-container'>
+
                 { hasLabel ?  <label htmlFor={htmlFor} style={{paddingBottom: '10px'}}>{label}{ required ? '*' : null }</label> : null}
                 
                 <input 
+                    style={ size === 'lg' ? { width: '100%' } : {}}
                     type={type}
                     id={htmlFor}
                     className='input'
                     placeholder={placeholder}
-                    value={this.state.value}
+                    value={edit ? value : this.state.value}
                     onChange={(e) => this.onInputChange(e.target.value)}
                     />
             </div>

@@ -146,7 +146,9 @@ input::-webkit-input-placeholder {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between; }
+  justify-content: space-between;
+  min-width: 500px;
+  overflow: hidden; }
 
 .input {
   font-size: 14px;
@@ -157,6 +159,14 @@ input::-webkit-input-placeholder {
   outline: none;
   width: 320px;
   height: 35px; }
+
+.dropdown {
+  min-width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px; }
 
 button {
   outline: none !important;
@@ -179,6 +189,61 @@ button {
   .nav-link:hover {
     background-color: #46cdcf;
     color: white; }
+
+.rodal-dialog {
+  padding: 0 !important; }
+
+.modal-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f7f7f7;
+  height: 100%; }
+
+.modal-head {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.5); }
+
+.modal-btn-container {
+  width: 100%;
+  height: 90px;
+  background-color: white;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; }
+
+.form {
+  width: 90%;
+  min-height: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  height: auto; }
+  .form select {
+    width: 60px;
+    height: 30px;
+    outline: none; }
+
+.img-form-container {
+  width: 100%;
+  height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-style: dashed;
+  margin-top: 30px; }
+
+.file-input {
+  width: 50px;
+  height: 50px; }
 
 .nav {
   position: fixed;

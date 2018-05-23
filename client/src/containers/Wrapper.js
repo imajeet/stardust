@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { openModal, closeModal } from '../state/actions/modal'
+import { openModal, closeModal, removeModalData} from '../state/actions/modal'
 import { stars } from '../stars'
 import { setStarsData } from '../state/actions/stars'
 import Rodal from 'rodal';
@@ -18,17 +18,20 @@ class Wrapper extends Component{
 
     render(){
 
-        const { openModal, closeModal, opened, modalData } = this.props
+        const { openModal, closeModal, opened, modalData, removeModalData } = this.props
 
         return(
             <div className='wrapper'>
                 <Rodal visible={opened}
-                    onClose={() => closeModal()}
+                    onClose={() => {
+                        closeModal()
+                        removeModalData()
+                    }}
                     closeMaskOnClick={true}
                     closeOnEsc={true}
                     animation='slideUp'
-                    width={620}
-                    height={420}
+                    width={900}
+                    height={620}
                     duration={200}>
                     <ModalContent modalData={modalData}/>
                 </Rodal>
@@ -47,4 +50,4 @@ const mapStateToProps = ({rootReducer}) => ({
 })
 
 
-export default connect(mapStateToProps, { openModal, closeModal, setStarsData })(Wrapper)
+export default connect(mapStateToProps, { openModal, closeModal, removeModalData, setStarsData })(Wrapper)

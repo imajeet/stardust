@@ -10,8 +10,7 @@ class Dropdown extends Component {
   
     render() {
       return (
-        <div>
-          <label>
+        <div className='dropdown'>
             Choose the desired distance (in light years):
             <select value={this.state.value} onChange={this.handleChange}>
               <option value={5}>5</option>
@@ -19,7 +18,6 @@ class Dropdown extends Component {
               <option value={20}>20</option>
               <option value={30}>30</option>
             </select>
-          </label>
         </div>
       );
     }
