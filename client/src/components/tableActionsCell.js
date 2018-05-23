@@ -9,13 +9,16 @@ class ActionsCell extends Component {
         const { data, setModalData, openModal, deleteStar} = this.props
 
         return(
-            <div>
-                <button onClick={() => {
+            <div className='actions-cell'>
+                <button className='action-btn-edit' onClick={() => {
                     setModalData(data)
                     openModal()
-                }}>Edit</button>
-                <button onClick={() => deleteStar(data.id)}>
-                    Delete
+                }}>
+                    <i className="fas fa-pencil-alt"></i>
+                </button>
+
+                <button className='action-btn-del' onClick={() => deleteStar(data.id)}>
+                    <i className="fas fa-trash"></i>
                 </button>
             </div>
         )

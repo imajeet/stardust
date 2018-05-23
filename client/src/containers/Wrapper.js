@@ -25,7 +25,8 @@ class Wrapper extends Component{
                 <Rodal visible={opened}
                     onClose={() => {
                         closeModal()
-                        removeModalData()
+                        setTimeout(() => removeModalData(), 50)
+                        // Added ^ because of short glitch between states
                     }}
                     closeMaskOnClick={true}
                     closeOnEsc={true}

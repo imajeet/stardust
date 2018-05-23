@@ -23,6 +23,7 @@ class TableContainer extends Component {
 		return(
 			
 		<ReactTable
+			style={{fontSize: '14px'}}
 		  data={stars}
 
 		  defaultFilterMethod={(filter, row) =>
@@ -48,6 +49,7 @@ class TableContainer extends Component {
                 {
                   Header: "Star Name",
 				  id: "starName",
+				  width: 360,
 				  accessor: d => d.starName,
 				  filterMethod: (filter, rows) =>
                     matchSorter(rows, filter.value, { keys: ["starName"] }),
@@ -88,17 +90,17 @@ class TableContainer extends Component {
 				{
 					Header: "X Coord",
 					accessor: "galX",
-					width: 150
+					width: 160
 				},
 				{
 					Header: "Y Coord",
 					accessor: "galY",
-					width: 150
+					width: 160
 				},
 				{
 					Header: "Z Coord",
 					accessor: "galZ",
-					width: 150
+					width: 160
 				}
 			]
 			},
@@ -107,7 +109,7 @@ class TableContainer extends Component {
 				{
 					Header: 'Actions',
 					id: "xd",
-					width: 100,
+					width: 130,
 					Cell: (row) => <ActionsCell data={row.original}/>
 				},
 			]

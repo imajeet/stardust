@@ -15,10 +15,10 @@ class Input extends Component{
         return(
             <div className='input-container'>
 
-                { hasLabel ?  <label htmlFor={htmlFor} style={{paddingBottom: '10px'}}>{label}{ required ? '*' : null }</label> : null}
+                { hasLabel ?  <label htmlFor={htmlFor} style={{paddingBottom: '10px', fontSize: '12px', fontWeight: 600}}>{label}{ required ? '*' : null }</label> : null}
                 
                 <input 
-                    style={ size === 'lg' ? { width: '100%' } : {}}
+                    style={ size === 'lg' ? { width: '100%' } : { }}
                     type={type}
                     id={htmlFor}
                     className='input'

@@ -17,3 +17,46 @@ button
 	&:hover
 		background-color: $bluish-green
 		color: white
+
+.modal-btn
+	@include text(14px, 600, white)
+	width: 150px
+	height: 50px
+	background-color: $bluish-green
+	outline: none
+	border: none
+	transition: all 0.2s ease
+	color: white
+	font-weight: 600
+	margin-left: 0
+	margin-right: 45px
+	&:hover
+		background-color: darken($bluish-green, 10%)
+
+.modal-btn-cancel
+	@extend .modal-btn
+	background-color: $medium-grey
+	margin-right: 0
+	margin-left: 45px
+	&:hover
+		background-color: darken($medium-grey, 10%)
+
+.action-btn-del
+	width: 30px
+	height: 30px
+	outline: none !important
+	border: none
+	background-color: $dark-red
+	color: white
+	display: flex
+	align-items: center
+	justify-content: center
+	transition: all 0.2s ease
+	&:hover
+		background-color: darken($error, 10%)
+
+.action-btn-edit
+	@extend .action-btn-del
+	background-color: $algae-green
+	&:hover
+		background-color: darken($algae-green, 10%)
