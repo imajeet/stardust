@@ -15,7 +15,12 @@ class Wrapper extends Component{
 
         return(
             <div className='wrapper'>
-                <Rodal visible={opened} onClose={() => closeModal()} closeMaskOnClick={true} closeOnEsc={true}>
+                <Rodal visible={opened}
+                    onClose={() => closeModal()}
+                    closeMaskOnClick={true}
+                    closeOnEsc={true}
+                    animation='slideUp'
+                    duration={200}>
                     <div>Content</div>
                 </Rodal>
                 <div className='container'>
