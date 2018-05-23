@@ -11,7 +11,10 @@ export function stars(state = null, action){
                 data: action.data
             }
         case DELETE_STAR:
-            return state.filter(e => e.id !== action.id)
+            return {
+                ...state,
+                data: state.data.filter(e => e.id !== action.id)
+            }
         case ADD_STAR:
             return {
                 ...state,

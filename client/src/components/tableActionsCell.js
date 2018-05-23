@@ -1,19 +1,25 @@
 import React, { Component }  from 'react'
 import { connect } from 'react-redux'
 import { setModalData, openModal } from '../state/actions/modal'
+import { deleteStar } from '../state/actions/stars'
 
 class ActionsCell extends Component {
     render(){
 
-        const { data, setModalData, openModal } = this.props
+        const { data, setModalData, openModal, deleteStar} = this.props
 
         return(
-            <button onClick={() => {
-                setModalData(data)
-                openModal()
-            }}>Edit</button>
+            <div>
+                <button onClick={() => {
+                    setModalData(data)
+                    openModal()
+                }}>Edit</button>
+                <button onClick={() => deleteStar(data.id)}>
+                    Delete
+                </button>
+            </div>
         )
     }
 }
 
-export default connect(null, { setModalData, openModal })(ActionsCell)
+export default connect(null, { setModalData, openModal, deleteStar })(ActionsCell)
