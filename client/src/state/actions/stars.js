@@ -1,4 +1,14 @@
-import { SET_STARS_DATA, DELETE_STAR, UPDATE_STAR, ADD_STAR, UPDATE_ERR, UPDATE_SUCCESS, INSERT_ERR, INSERT_SUCCESS, RESET_STATUS } from '../reducers/stars'
+import {
+    SET_STARS_DATA,
+    DELETE_STAR,
+    UPDATE_STAR,
+    ADD_STAR,
+    UPDATE_ERR,
+    UPDATE_SUCCESS,
+    INSERT_ERR,
+    INSERT_SUCCESS,
+    RESET_STATUS
+} from '../reducers/stars'
 
 export const setStarsData = (data) => ({
     type: SET_STARS_DATA,
@@ -37,7 +47,7 @@ export const insertSuccess = () => ({
 
 export const insertFail = () => ({
     type: INSERT_ERR,
-    message: "Oooops, something went wrong"
+    message: "Oooops, it seems that u missed something"
 })
 
 export const resetStatus = () => ({

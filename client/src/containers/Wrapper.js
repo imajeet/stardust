@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { openModal, closeModal, removeModalData, shutDownModal } from '../state/actions/modal'
 import { stars } from '../stars'
-import { setStarsData, updateStar, addStar } from '../state/actions/stars'
+import { setStarsData, updateStar, addStar, updateFail, insertFail } from '../state/actions/stars'
 import { resetValues } from '../state/actions/form'
 import Rodal from 'rodal';
 import { Navigation } from '../components/navigation';
@@ -19,7 +19,7 @@ class Wrapper extends Component{
 
     render(){
 
-        const { openModal, closeModal, opened, modalData, removeModalData, updateStar, resetValues, formData, addStar} = this.props
+        const { openModal, closeModal, opened, modalData, removeModalData, updateStar, resetValues, formData, addStar, updateFail, insertFail } = this.props
 
         return(
             <div className='wrapper'>
@@ -34,7 +34,15 @@ class Wrapper extends Component{
                     width={900}
                     height={620}
                     duration={200}>
-                    <ModalContent data={modalData} closeModal={closeModal} formData={formData} addStar={addStar} updateStar={updateStar} modalData={modalData}/>
+                    <ModalContent
+                        data={modalData}
+                        closeModal={closeModal}
+                        formData={formData}
+                        addStar={addStar}
+                        updateStar={updateStar}
+                        modalData={modalData}
+                        updateFail={updateFail}
+                        insertFail={insertFail}/>
                 </Rodal>
                 <div className='container'>
                     <Navigation openModal={openModal} resetForm={resetValues} />
@@ -52,4 +60,4 @@ const mapStateToProps = ({rootReducer}) => ({
 })
 
 
-export default connect(mapStateToProps, { openModal, closeModal, removeModalData, setStarsData, shutDownModal, updateStar, resetValues, addStar })(Wrapper)
+export default connect(mapStateToProps, { openModal, closeModal, removeModalData, setStarsData, shutDownModal, updateStar, resetValues, addStar, updateFail, insertFail})(Wrapper)

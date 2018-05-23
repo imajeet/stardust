@@ -120,18 +120,30 @@ class TableContainer extends Component {
 			columns: [
 				{
 					Header: "X Coord",
-					accessor: "galX",
-					width: 160
+					id: "galX",
+					width: 160,
+					accessor: d => d.galX,
+					filterMethod: (filter, rows) =>
+					  matchSorter(rows, filter.value, { keys: ["galX"] }),
+					filterAll: true
 				},
 				{
 					Header: "Y Coord",
-					accessor: "galY",
-					width: 160
+					id: "galY",
+					width: 160,
+					accessor: d => d.galY,
+					filterMethod: (filter, rows) =>
+					  matchSorter(rows, filter.value, { keys: ["galY"] }),
+					filterAll: true
 				},
 				{
 					Header: "Z Coord",
-					accessor: "galZ",
-					width: 160
+					id: "galZ",
+					width: 160,
+					accessor: d => d.galY,
+					filterMethod: (filter, rows) =>
+					  matchSorter(rows, filter.value, { keys: ["galY"] }),
+					filterAll: true
 				}
 			]
 			},
